@@ -38,11 +38,14 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 53);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(25, 80);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "No Mp3 Currently Playing";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Open
             // 
@@ -76,7 +79,10 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.DefaultExt = "mp3";
+            this.openFileDialog1.Filter = "\"Audio Files|*.mp3;*.wav;*.wmp\";";
+            this.openFileDialog1.Multiselect = true;
+            this.openFileDialog1.Title = "Help";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // Form1
@@ -88,10 +94,12 @@
             this.Controls.Add(this.Play);
             this.Controls.Add(this.Open);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MaximumSize = new System.Drawing.Size(412, 219);
             this.MinimumSize = new System.Drawing.Size(412, 219);
             this.Name = "Form1";
             this.Text = "MP3 Music Player v0.01";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
